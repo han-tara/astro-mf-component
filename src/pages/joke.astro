@@ -1,0 +1,13 @@
+---
+const {type} = await Astro.request.json()
+const data = type ? type : 'Any'
+const {setup, delivery} = await fetch(`https://v2.jokeapi.dev/joke/${data}?type=twopart`).then(res => res.json())
+---
+
+<div class="shadow-lg rounded-lg p-4 w-fit h-fit flex flex-col justify-center items-center gap-4">
+    <div class="text-light">from: http://localhost:3001/joke</div>
+    <div class="flex flex-col justify-center items-center">
+        <div class="font-bold">{setup}</div>
+        <div>{delivery}</div>
+    </div>  
+</div>
