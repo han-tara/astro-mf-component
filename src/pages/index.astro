@@ -4,16 +4,7 @@ const joke = await fetch('https://v2.jokeapi.dev/joke/Any?type=twopart').then(re
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Component</title>
-	</head>
-	<body>
-		<h1>{joke.setup}</h1>
-		<h1>{joke.delivery}</h1>
-	</body>
-</html>
+<div class="flex flex-col shadow-lg justify-center items-center p-2 gap-2">
+	<h1 class="font-bold">{joke.setup}</h1>
+	<h1>{joke.delivery}</h1>
+</div>
