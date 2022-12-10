@@ -3,11 +3,58 @@ const {type} = await Astro.request.json()
 const data = type ? type : 'Any'
 const {setup, delivery} = await fetch(`https://v2.jokeapi.dev/joke/${data}?type=twopart`).then(res => res.json())
 ---
+<style>
+    .flex {
+  display: flex;
+}
 
-<div class="shadow-lg rounded-lg p-4 w-fit h-fit flex flex-col justify-center items-center gap-4">
-    <div class="text-light">from: http://localhost:3001/joke</div>
-    <div class="flex flex-col justify-center items-center">
-        <div class="font-bold">{setup}</div>
-        <div>{delivery}</div>
-    </div>  
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+</style>
+
+<div class="flex flex-col shadow-lg justify-center items-center p-3 rounded-lg gap-2 w-fit h-fit">
+	<h1 class="font-bold">{setup}</h1>
+	<h1>{delivery}</h1>
 </div>
