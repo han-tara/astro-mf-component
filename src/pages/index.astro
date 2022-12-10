@@ -3,6 +3,9 @@
 const joke = await fetch('https://v2.jokeapi.dev/joke/Any?type=twopart').then(res => res.json())
 
 ---
+<style>
+	.flex{flex: ;}
+</style>
 
 <div class="flex flex-col shadow-lg justify-center items-center p-2 gap-2">
 	<h1 class="font-bold">{joke.setup}</h1>
